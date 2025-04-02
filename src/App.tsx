@@ -11,11 +11,11 @@ interface DataInterface {
     Order_ID: string;
     Order_Date: string;
     Ship_Date: string;
-    Ship_Mode: string;
+    Ship_Mode: "Second Class" | "Standard Class" | "First Class" | "Same Day";
     Customer_ID: string;
     Customer_Name: string;
-    Segment: string;
-    Country: string;
+    Segment: "Consumer" | "Corporate" | "Home Office";
+    Country: "United States";
     City: string;
     State: string;
     Postal_Code: number;

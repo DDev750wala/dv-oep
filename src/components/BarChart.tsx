@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../lib/dataStore";
 import { Bar } from "react-chartjs-2";
 import {
     Chart as ChartJS,
@@ -20,7 +21,7 @@ ChartJS.register(
 );
 
 const BarChart = () => {
-    const data = {};
+    const data = useContext(DataContext).data;
 
     const options = {
         responsive: true,

@@ -22,12 +22,28 @@ ChartJS.register(
 
 const BarChart = () => {
     const data = useContext(DataContext).data;
-
+    
+    
     const options = {
         responsive: true,
         plugins: {
             legend: { position: "top" },
             title: { display: true, text: "Sample Bar Chart" },
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: "Category", // Label for X-axis
+            },
+          },
+          y: {
+            title: {
+              display: true,
+              text: "Sales", // Label for Y-axis
+            },
+            beginAtZero: true,
+          },
         },
     };
 

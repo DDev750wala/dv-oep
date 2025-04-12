@@ -10,11 +10,6 @@ import {
     Tooltip,
     Legend,
     ChartData,
-    CoreChartOptions,
-    ElementChartOptions,
-    ScaleChartOptions,
-    DatasetChartOptions,
-    PluginChartOptions,
 } from "chart.js";
 import { _DeepPartialObject } from "node_modules/chart.js/dist/types/utils";
 
@@ -95,37 +90,6 @@ const BarChart = () => {
 
         setLoading(false);
     }, [data]);
-
-    const options = {
-        responsive: true,
-        maintainAspectRatio: false, // Allow flexible sizing
-        layout: {
-            padding: 20, // Add some space around the chart
-        },
-        plugins: {
-            // Legend: false,
-            // legend: { position: "top" as const },
-            title: { display: true, text: "Bar Chart" },
-        },
-        scales: {
-            x: {
-                title: { display: true, text: "Category" },
-                ticks: {
-                    autoSkip: false,
-                    maxRotation: 40,
-                    minRotation: 30,
-                    align: "center",
-                },
-            },
-            y: {
-                title: { display: true, text: "Sales" },
-                beginAtZero: false,
-                ticks: {
-                    stepSize: 50000,
-                },
-            },
-        },
-    };
 
     if (loading) {
         return <div>Loading...</div>;

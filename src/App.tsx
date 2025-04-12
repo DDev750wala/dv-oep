@@ -5,6 +5,10 @@ import Papa from "papaparse";
 import csvData from "../assets/data.csv?raw";
 import { DataContext, DataInterface } from "./lib/dataStore";
 import BarChart from "./components/BarChart";
+import PieChart from "./components/PieChart";
+import LineChart from "./components/LineChart";
+import  ScatterChart  from "./components/ScatterChart";
+import StackedBarChart from "./components/StackedBar";
 
 function App() {
     const [data, setData] = useState<DataInterface[]>([]);
@@ -35,6 +39,10 @@ function App() {
                     click 
                 </Button> */}
                 <BarChart />
+                <PieChart />
+                <LineChart />
+                <StackedBarChart /> 
+                <ScatterChart />
             </>
         </DataContext.Provider>
     );

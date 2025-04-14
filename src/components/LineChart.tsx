@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import type { ChartData } from "chart.js";
-import { DataContext, DataInterface } from "../lib/dataStore";
+import { DataContext } from "../lib/dataStore";
 import { Line } from "react-chartjs-2";
 import {
     Chart as ChartJS,

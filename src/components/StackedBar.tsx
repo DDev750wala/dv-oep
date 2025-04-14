@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { DataContext, DataInterface } from "../lib/dataStore";
+import { useContext, useEffect, useState } from "react";
+import { DataContext } from "../lib/dataStore";
 import { Bar } from "react-chartjs-2";
 import {
     Chart as ChartJS,

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Doughnut } from "react-chartjs-2";
 import {
     Chart as ChartJS,

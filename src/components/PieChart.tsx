@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import type { ChartData } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import {

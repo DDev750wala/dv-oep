@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DataContext, DataInterface } from "../lib/dataStore";
 import { Bar } from "react-chartjs-2";
 import {
@@ -43,7 +43,6 @@ const BarChart = () => {
         }
 
         const groupBy = (arr: DataInterface[], key: keyof DataInterface) => {
-            console.log(arr);
 
             return arr.reduce((acc: Record<string, DataInterface[]>, obj) => {
                 const value = obj[key];
@@ -54,11 +53,12 @@ const BarChart = () => {
         };
 
         const groupedData = groupBy(data, "Category");
-        console.log(groupedData);
 
         let labels: string[] = [];
 
+        console.log("IN BAR CHART");
         for (const key in groupedData) {
+            console.log(groupedData[key]);
             labels.push(key);
         }
 
@@ -71,7 +71,6 @@ const BarChart = () => {
             );
             totalSalesByCategory.push(sales);
         }
-        console.log(totalSalesByCategory);
 
         let datasets: any = [
             {
@@ -95,7 +94,8 @@ const BarChart = () => {
         return <div>Loading...</div>;
     }
 
-    // Wrap chart inside a responsive div
+    // if (!data || data.length === 0) return <p>Loading chart data...</p>;
+
     return data ? (
         <div className="w-full h-[70vh]">
             <Bar

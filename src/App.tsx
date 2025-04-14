@@ -9,6 +9,8 @@ import PieChart from "./components/PieChart";
 import LineChart from "./components/LineChart";
 import  ScatterChart  from "./components/ScatterChart";
 import StackedBarChart from "./components/StackedBar";
+import DoughNut from "./components/DoughNutChart";
+import BubbleChart from "./components/BubbleChart";
 
 function App() {
     const [data, setData] = useState<DataInterface[]>([]);
@@ -43,6 +45,8 @@ function App() {
                 <LineChart />
                 <StackedBarChart /> 
                 <ScatterChart />
+                <DoughNut />
+                <BubbleChart />
             </>
         </DataContext.Provider>
     );

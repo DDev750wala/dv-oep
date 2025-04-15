@@ -131,7 +131,9 @@ const StackedBarChart = () => {
             />
         </div>
     ) : (
-        <div>No data available</div>
+        <div className="flex justify-center items-center h-[70vh]">
+            <h1>Loading...</h1>
+        </div>
     );
 };
 

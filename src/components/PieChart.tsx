@@ -84,10 +84,12 @@ const PieChart = () => {
         setLoading(false);
     }, [data]);
 
-    // if (!data || data.length === 0) return <p>Loading chart data...</p>;
-
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="flex justify-center items-center h-[70vh]">
+                <h1>Loading...</h1>
+            </div>
+        );
     }
 
     return data ? (

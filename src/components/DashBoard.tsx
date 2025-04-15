@@ -9,26 +9,26 @@ import BubbleChart from "./BubbleChart";
 
 export default function DashBoard() {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-            <div className="bg-white rounded-2xl shadow-md p-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-4">
+            <div className="bg-white rounded-xs shadow-md p-4 border-2">
                 <BarChart />
             </div>
-            <div className="bg-white rounded-2xl shadow-md p-4">
+            <div className="bg-white rounded-xs shadow-md p-4 border-2">
                 <PieChart />
             </div>
-            <div className="bg-white rounded-2xl shadow-md p-4">
+            <div className="bg-white rounded-xs shadow-md p-4 border-2">
                 <LineChart />
             </div>
-            <div className="bg-white rounded-2xl shadow-md p-4">
+            <div className="bg-white rounded-xs shadow-md p-4 border-2">
                 <StackedBarChart />
             </div>
-            <div className="bg-white rounded-2xl shadow-md p-4">
+            <div className="bg-white rounded-xs shadow-md p-4 border-2">
                 <ScatterChart />
             </div>
-            <div className="bg-white rounded-2xl shadow-md p-4">
+            <div className="bg-white rounded-xs shadow-md p-4 border-2">
                 <DoughNut />
             </div>
-            <div className="bg-white rounded-2xl shadow-md p-4">
+            <div className="bg-white rounded-xs shadow-md p-4 border-2">
                 <BubbleChart />
             </div>
         </div>

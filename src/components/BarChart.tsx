@@ -90,7 +90,11 @@ const BarChart = () => {
     }, [data]);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="flex justify-center items-center h-[70vh]">
+                <h1>Loading...</h1>
+            </div>
+        );
     }
 
     // if (!data || data.length === 0) return <p>Loading chart data...</p>;

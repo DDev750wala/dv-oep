@@ -6,6 +6,7 @@ import ScatterChart from "./ScatterChart";
 import StackedBarChart from "./StackedBar";
 import DoughNut from "./DoughNutChart";
 import BubbleChart from "./BubbleChart";
+import { Link } from "react-router-dom";
 
 export default function DashBoard() {
     return (
@@ -31,7 +32,15 @@ export default function DashBoard() {
             <div className="bg-white rounded-xs shadow-md p-4 border-2">
                 <BubbleChart />
             </div>
+
+            <Link
+                to="https://github.com/meet-panwala/dv-oep"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+            >
+                View Original Repository
+            </Link>
         </div>
     );
 }
-

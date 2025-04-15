@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import DashBoard from "./components/DashBoard";
 import Navbar from "./components/Navbar";
+import ViewData from "./components/DataSet";
 
 function App() {
     const [data, setData] = useState<DataInterface[]>([]);
@@ -50,6 +51,9 @@ function App() {
                     <Route path="/pie-chart" element={<PieChart />} />
                     <Route path="/scatter-chart" element={<ScatterChart />} />
                     <Route path="/dashboard" element={<DashBoard />} />
+                    <Route path="/data" element={<ViewData />} />
+                    <Route path="*" element={<DashBoard />} />
+                
                 </Routes>
             </Router>
         </DataContext.Provider>

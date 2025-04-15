@@ -8,6 +8,7 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navLinks = [
+        { name: "Data", href: "/data" },
         { name: "Bar Chart", href: "/bar-chart" },
         { name: "Bubble Chart", href: "/bubble-chart" },
         { name: "Doughnut Chart", href: "/doughnut-chart" },

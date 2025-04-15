@@ -12,7 +12,6 @@ import {
     ChartData,
 } from "chart.js";
 import { _DeepPartialObject } from "node_modules/chart.js/dist/types/utils";
-import { Bold } from "lucide-react";
 
 ChartJS.register(
     CategoryScale,

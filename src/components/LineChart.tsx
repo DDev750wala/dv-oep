@@ -36,7 +36,10 @@ const LineChart = () => {
         const parts = dateStr.split("/");
         if (parts.length === 3) {
             const [day, month, year] = parts;
-            const isoDate = `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+            const isoDate = `${year}-${month.padStart(2, "0")}-${day.padStart(
+                2,
+                "0"
+            )}`;
             const dateObj = new Date(isoDate);
             return isNaN(dateObj.getTime()) ? null : isoDate;
         }
@@ -56,7 +59,8 @@ const LineChart = () => {
         data1.forEach((item) => {
             const parsedDate = parseDate(item.Order_Date);
             if (parsedDate) {
-                groupedSales[parsedDate] = (groupedSales[parsedDate] || 0) + Number(item.Sales);
+                groupedSales[parsedDate] =
+                    (groupedSales[parsedDate] || 0) + Number(item.Sales);
             } else {
                 console.warn("Invalid date skipped:", item.Order_Date);
             }
@@ -109,7 +113,8 @@ const LineChart = () => {
                         title: {
                             display: true,
                             text: "Sales by Order Date (Line Chart)",
-                            font: { size: 18 },
+                            font: { size: 18, weight: "bold" },
+                            color: "black",
                         },
                         tooltip: {
                             callbacks: {
@@ -122,13 +127,26 @@ const LineChart = () => {
                     },
                     scales: {
                         x: {
-                            title: { display: true, text: "Order Date" },
-                            ticks: { font: { size: 10 }, maxRotation: 45 },
+                            title: {
+                                display: true,
+                                text: "Order Date",
+                                font: { weight: "bold" },
+                                color: "black",
+                            },
+                            ticks: {
+                                font: { size: 10, weight: "bold" },
+                                maxRotation: 45,
+                            },
                         },
                         y: {
-                            title: { display: true, text: "Sales" },
+                            title: {
+                                display: true,
+                                text: "Sales",
+                                font: { weight: "bold" },
+                                color: "black",
+                            },
                             beginAtZero: true,
-                            ticks: { font: { size: 10 } },
+                            ticks: { font: { size: 10, weight: "bold" } },
                         },
                     },
                 }}

@@ -23,14 +23,13 @@ ChartJS.register(
 
 const BubbleChart = () => {
     const [loading, setLoading] = useState(true);
-    const [dataInFormat, setDataInFormat] =
-        useState<
-            ChartData<
-                "bubble",
-                { x: number | Date; y: number; r: number }[],
-                unknown
-            >
-        >({labels: [], datasets: []});
+    const [dataInFormat, setDataInFormat] = useState<
+        ChartData<
+            "bubble",
+            { x: number | Date; y: number; r: number }[],
+            unknown
+        >
+    >({ labels: [], datasets: [] });
     const data = useContext(DataContext).data;
 
     useEffect(() => {
@@ -63,67 +62,75 @@ const BubbleChart = () => {
 
     if (loading) return <div>Loading...</div>;
 
-if (!data || data.length === 0) return <p>Loading chart data...</p>;
+    if (!data || data.length === 0) return <p>Loading chart data...</p>;
 
-if (!dataInFormat) return <p>Preparing chart...</p>; // <-- Add this
+    if (!dataInFormat) return <p>Preparing chart...</p>; // <-- Add this
 
-return (
-    <div className="w-full h-[70vh]">
-        <Bubble
-            data={dataInFormat}
-            options={{
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: "Bubble Chart - Sales Over Time",
-                        font: { size: 18 },
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: (context) => {
-                                const { x, y, r } = context.raw as {
-                                    x: number | Date;
-                                    y: number;
-                                    r: number;
-                                };
+    return (
+        <div className="w-full h-[70vh]">
+            <Bubble
+                data={dataInFormat}
+                options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: "Bubble Chart - Sales Over Time",
+                            font: { size: 18, weight: "bold" },
+                            color: "black",
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => {
+                                    const { x, y, r } = context.raw as {
+                                        x: number | Date;
+                                        y: number;
+                                        r: number;
+                                    };
 
-                                const formattedDate =
-                                    typeof x === "number"
-                                        ? new Date(x).toLocaleDateString()
-                                        : x.toLocaleDateString();
+                                    const formattedDate =
+                                        typeof x === "number"
+                                            ? new Date(x).toLocaleDateString()
+                                            : x.toLocaleDateString();
 
-                                return `Date: ${formattedDate}, Sales: $${y.toFixed(
-                                    2
-                                )}, Size: ${r.toFixed(2)}`;
+                                    return `Date: ${formattedDate}, Sales: $${y.toFixed(
+                                        2
+                                    )}, Size: ${r.toFixed(2)}`;
+                                },
                             },
                         },
                     },
-                },
-                scales: {
-                    x: {
-                        type: "time",
-                        time: {
-                            unit: "month",
+                    scales: {
+                        x: {
+                            type: "time",
+                            time: {
+                                unit: "month",
+                            },
+                            title: {
+                                display: true,
+                                text: "Order Date",
+                                font: {
+                                    weight: "bold",
+                                },
+                                color: "black",
+                            },
                         },
-                        title: {
-                            display: true,
-                            text: "Order Date",
+                        y: {
+                            title: {
+                                display: true,
+                                text: "Sales",
+                                font: {
+                                    weight: "bold",
+                                },
+                                color: "black",
+                            },
                         },
                     },
-                    y: {
-                        title: {
-                            display: true,
-                            text: "Sales",
-                        },
-                    },
-                },
-            }}
-        />
-    </div>
-);
-
+                }}
+            />
+        </div>
+    );
 };
 
 export default BubbleChart;

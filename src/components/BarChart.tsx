@@ -12,6 +12,7 @@ import {
     ChartData,
 } from "chart.js";
 import { _DeepPartialObject } from "node_modules/chart.js/dist/types/utils";
+import { Bold } from "lucide-react";
 
 ChartJS.register(
     CategoryScale,
@@ -43,7 +44,6 @@ const BarChart = () => {
         }
 
         const groupBy = (arr: DataInterface[], key: keyof DataInterface) => {
-
             return arr.reduce((acc: Record<string, DataInterface[]>, obj) => {
                 const value = obj[key];
                 acc[value] = acc[value] || [];
@@ -123,23 +123,29 @@ const BarChart = () => {
                             display: true,
                             text: "Bar Chart",
                             align: "center",
-                            font: { size: 20 },
+                            color: "black",
+                            font: { size: 20, weight: "bold" },
                         },
                         tooltip: {
                             titleFont: { size: 8 },
-                            bodyFont: { size: 8 },  
+                            bodyFont: { size: 8 },
                             padding: 5,
-                            caretSize: 4,           
+                            caretSize: 4,
                         },
                     },
                     scales: {
                         x: {
-                            title: { display: true, text: "Category", align: "center" },
+                            title: {
+                                display: true,
+                                text: "Category",
+                                align: "center",
+                                font: { weight: "bold" },
+                                color: "black",
+                            },
                             ticks: {
-                                font: { size: 10 },
+                                font: { size: 10, weight: "bold" },
                                 autoSkip: false,
-                                maxRotation: 30,
-                                minRotation: 40,
+
                                 align: "center",
                             },
                             grid: {
@@ -147,11 +153,16 @@ const BarChart = () => {
                             },
                         },
                         y: {
-                            title: { display: true, text: "Sales" },
+                            title: {
+                                display: true,
+                                text: "Sales",
+                                font: { weight: "bold" },
+                                color: "black",
+                            },
                             beginAtZero: false,
                             ticks: {
                                 stepSize: 50000,
-                                font: { size: 10 },
+                                font: { size: 10, weight: "bold" },
                             },
                         },
                     },

@@ -18,7 +18,7 @@ ChartJS.register(
     BarElement,
     Title,
     Tooltip,
-    Legend,
+    Legend
 );
 
 const StackedBarChart = () => {
@@ -33,15 +33,16 @@ const StackedBarChart = () => {
         }
 
         // Group unique Categories and Regions
-        const categories = Array.from(new Set(rawData.map(d => d.Category)));
-        const regions = Array.from(new Set(rawData.map(d => d.Region)));
+        const categories = Array.from(new Set(rawData.map((d) => d.Category)));
+        const regions = Array.from(new Set(rawData.map((d) => d.Region)));
 
- 
         // Build region-wise datasets
-        const datasets = regions.map(region => {
-            const data = categories.map(category => {
+        const datasets = regions.map((region) => {
+            const data = categories.map((category) => {
                 const total = rawData
-                    .filter(d => d.Category === category && d.Region === region)
+                    .filter(
+                        (d) => d.Category === category && d.Region === region
+                    )
                     .reduce((sum, d) => sum + Number(d.Sales), 0);
                 return total;
             });
@@ -74,14 +75,16 @@ const StackedBarChart = () => {
                         title: {
                             display: true,
                             text: "Category-wise Sales in Different Regions",
-                            font: { size: 18 },
+                            font: { size: 18, weight: "bold" },
+                            color: "black",
                         },
                         legend: {
                             position: "bottom",
                         },
                         tooltip: {
                             callbacks: {
-                                label: context => `${context.dataset.label}: ₹${context.formattedValue}`,
+                                label: (context) =>
+                                    `${context.dataset.label}: ₹${context.formattedValue}`,
                             },
                         },
                     },
@@ -91,16 +94,18 @@ const StackedBarChart = () => {
                             title: {
                                 display: true,
                                 text: "Category",
-                                font:{
+                                font: {
                                     weight: "bold",
-                                    size: 13
-                                }
+                                    size: 13,
+                                },
+                                color: "black",
                             },
                             ticks: {
                                 font: {
-                                    size:10
-                                }
-                            }
+                                    size: 10,
+                                    weight: "bold",
+                                },
+                            },
                         },
                         y: {
                             stacked: true,
@@ -109,13 +114,15 @@ const StackedBarChart = () => {
                                 text: "Sales",
                                 font: {
                                     weight: "bold",
-                                    size:13
+                                    size: 13,
                                 },
+                                color: "black",
                             },
-                            ticks:{
+                            ticks: {
                                 font: {
                                     size: 10,
-                                }
+                                    weight: "bold",
+                                },
                             },
                             beginAtZero: true,
                         },
@@ -131,10 +138,10 @@ const StackedBarChart = () => {
 // Optional: Region-based color mapping
 const getColor = (region: string) => {
     const colors: Record<string, string> = {
-        "East": "rgba(255, 99, 132, 0.7)",
-        "West": "rgba(54, 162, 235, 0.7)",
-        "South": "rgba(255, 206, 86, 0.7)",
-        "North": "rgba(75, 192, 192, 0.7)",
+        East: "rgba(255, 99, 132, 0.7)",
+        West: "rgba(54, 162, 235, 0.7)",
+        South: "rgba(255, 206, 86, 0.7)",
+        North: "rgba(75, 192, 192, 0.7)",
     };
     return colors[region] || "rgba(153, 102, 255, 0.7)";
 };

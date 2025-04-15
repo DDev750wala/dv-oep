@@ -114,9 +114,9 @@ const PieChart = () => {
                         },
                         title: {
                             display: true,
-                            text: "Sales by Region",
+                            text: "Sales by Region(Pie Chart)",
                             align: "center",
-                            color: "orange",
+                            color: "black",
                             font: {
                                 size: 20,
                                 weight: "bold",

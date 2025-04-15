@@ -112,9 +112,9 @@ const DoughNut = () => {
                         },
                         title: {
                             display: true,
-                            text: "Sales by Region",
+                            text: "Sales by Region(Doughnut Chart)",
                             align: "center",
-                            color: "orange",
+                            color: "black",
                             font: {
                                 size: 20,
                                 weight: "bold",

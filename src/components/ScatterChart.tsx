@@ -13,7 +13,6 @@ import {
     ChartData,
 } from "chart.js";
 
-
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -21,7 +20,7 @@ ChartJS.register(
     Title,
     Tooltip,
     Legend,
-    TimeScale,
+    TimeScale
 );
 import "chartjs-adapter-date-fns";
 
@@ -44,27 +43,31 @@ const ScatterChart = () => {
             return { x: date, y: sales };
         });
 
-            setDataInFormat({
-                labels: [], 
-                datasets: [
-                    {
-                        label: "Sales over Time",
-                        data: parsedData,
-                        backgroundColor: "rgba(54, 162, 235, 0.6)",
-                        borderColor: "rgba(54, 162, 235, 1)",
-                    },
-                ],
-            });
+        setDataInFormat({
+            labels: [],
+            datasets: [
+                {
+                    label: "Sales over Time",
+                    data: parsedData,
+                    backgroundColor: "rgba(54, 162, 235, 0.6)",
+                    borderColor: "rgba(54, 162, 235, 1)",
+                },
+            ],
+        });
 
         setLoading(false);
     }, [data]);
 
     if (loading) return <div>Loading...</div>;
 
-    if (!dataInFormat || !dataInFormat.datasets || dataInFormat.datasets.length === 0) {
+    if (
+        !dataInFormat ||
+        !dataInFormat.datasets ||
+        dataInFormat.datasets.length === 0
+    ) {
         return <div>No data available</div>;
     }
-    
+
     return (
         <div className="w-full h-[70vh]">
             <Scatter
@@ -77,12 +80,15 @@ const ScatterChart = () => {
                         title: {
                             display: true,
                             text: "Sales vs Ship Date",
-                            font: { size: 20 },
+                            font: { size: 20, weight: "bold" },
+                            color: "black",
                         },
                         tooltip: {
                             callbacks: {
                                 label: function (context) {
-                                    const date = new Date(context.parsed.x).toLocaleDateString();
+                                    const date = new Date(
+                                        context.parsed.x
+                                    ).toLocaleDateString();
                                     return `Date: ${date}, Sales: ${context.parsed.y}`;
                                 },
                             },
@@ -96,20 +102,24 @@ const ScatterChart = () => {
                             },
                             title: {
                                 display: true,
-                                text: "Order Date",
+                                text: "Ship Date",
+                                color: "black",
+                                font: { weight: "bold" },
                             },
                             ticks: {
-                                font: { size: 10 },
+                                font: { size: 10, weight: "bold" },
                             },
                         },
                         y: {
                             title: {
                                 display: true,
                                 text: "Sales",
+                                color: "black",
+                                font: { weight: "bold" },
                             },
                             beginAtZero: false,
                             ticks: {
-                                font: { size: 10 },
+                                font: { size: 10, weight: "bold" },
                             },
                         },
                     },
@@ -117,6 +127,6 @@ const ScatterChart = () => {
             />
         </div>
     );
-}
+};
 
 export default ScatterChart;
